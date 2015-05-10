@@ -1,12 +1,18 @@
-<!DOCTYPE html> 
-<html>
-<body ng-app ng-init="items=[0,1,2,3,4,5,6,7,8,9]">
+<!DOCTYPE html>
+<html ng-app>
+<body ng-init="title='Angular'; items = [0,1,2,3];" >
 
-  <input type="text" name="search" ng-model="search" placeholder="search..." />
+  Hello {{title}}
 
-  <div ng-repeat="item in items | filter:search">
+  <input type="text" ng-model="q">
+
+  <div ng-repeat="item in items | filter: q" ng-hide="hide">
     {{ item }}
   </div>
+
+  <button ng-click="hide=!hide">Toggle Show/Hide</button>
+
+  <button ng-click="items[items.length]= items.length">Add New Item</button>
 
 <script type="text/javascript" src="./angular.js"></script>
 </body>
